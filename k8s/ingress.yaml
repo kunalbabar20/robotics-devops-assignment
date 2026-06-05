@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: robotics-ingress
+
+spec:
+  rules:
+  - host: robotics.local
+
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+
+        backend:
+          service:
+            name: robotics-service
+
+            port:
+              number: 80

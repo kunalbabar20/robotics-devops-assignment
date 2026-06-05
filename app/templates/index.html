@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Robotics Fleet Management Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background: #1e293b;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 42px;
+        }
+
+        .status-bar {
+            background: #0f766e;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .navbar {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .navbar button {
+            margin: 10px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #0ea5e9;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .navbar button:hover {
+            background: #0284c7;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .card {
+            background: #1e293b;
+            width: 260px;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(255,255,255,0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+        }
+
+        .card h1 {
+            font-size: 50px;
+        }
+
+        .green {
+            color: #22c55e;
+        }
+
+        .yellow {
+            color: #facc15;
+        }
+
+        .blue {
+            color: #38bdf8;
+        }
+
+        h2.section-title {
+            text-align: center;
+            margin: 25px 0;
+            font-size: 36px;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background: #0b132b;
+        }
+
+        th,
+        td {
+            border: 1px solid #334155;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background: #1e293b;
+        }
+
+        .operations {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+
+        .operations button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .operations button:hover {
+            background: #1d4ed8;
+        }
+
+        .platform-card {
+            width: 85%;
+            margin: 30px auto;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .platform-card h2 {
+            margin-bottom: 20px;
+        }
+
+        .platform-card p {
+            margin: 8px;
+            font-size: 18px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1e293b;
+            text-align: center;
+            font-size: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>🤖 Robotics Fleet Management Dashboard</h1>
+    </div>
+
+    <div class="status-bar">
+        🟢 System Online | Environment: Production | CI/CD Active
+    </div>
+
+    <div class="navbar">
+
+        <button onclick="window.location='/health'">
+            🩺 Health Endpoint
+        </button>
+
+        <button onclick="window.location='/robots'">
+            🤖 Fleet API
+        </button>
+
+        <button onclick="window.location='/metrics'">
+            📊 Metrics API
+        </button>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Active Robots</h2>
+            <h1 class="green">1</h1>
+        </div>
+
+        <div class="card">
+            <h2>Charging Robots</h2>
+            <h1 class="yellow">1</h1>
+        </div>
+
+        <div class="card">
+            <h2>Platform Status</h2>
+            <h1 class="green">UP</h1>
+        </div>
+
+        <div class="card">
+            <h2>Deployment</h2>
+            <h1 class="blue">v1.0</h1>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">Fleet Status</h2>
+
+    <table>
+
+        <tr>
+            <th>Robot ID</th>
+            <th>Status</th>
+            <th>Battery</th>
+            <th>Location</th>
+        </tr>
+
+        <tr>
+            <td>AGV-101</td>
+            <td style="color:#22c55e;font-weight:bold;">ACTIVE</td>
+            <td>82%</td>
+            <td>Zone-A</td>
+        </tr>
+
+        <tr>
+            <td>AGV-102</td>
+            <td style="color:#facc15;font-weight:bold;">CHARGING</td>
+            <td>35%</td>
+            <td>Charging Station</td>
+        </tr>
+
+    </table>
+
+    <h2 class="section-title">Robot Operations</h2>
+
+    <div class="operations">
+
+        <button onclick="alert('Robot Started Successfully')">
+            ▶ Start Robot
+        </button>
+
+        <button onclick="alert('Robot Stopped Successfully')">
+            ⏹ Stop Robot
+        </button>
+
+        <button onclick="alert('Robot Sent To Charging Station')">
+            🔋 Send To Charge
+        </button>
+
+        <button onclick="alert('Diagnostics Started')">
+            🛠 Run Diagnostics
+        </button>
+
+    </div>
+
+    <h2 class="section-title">Emergency Controls</h2>
+
+    <div class="operations">
+
+        <button
+            style="background:#dc2626;"
+            onclick="alert('Emergency Stop Activated')">
+            🚨 Emergency Stop
+        </button>
+
+        <button
+            style="background:#ea580c;"
+            onclick="alert('Maintenance Mode Enabled')">
+            🔧 Maintenance Mode
+        </button>
+
+    </div>
+
+    <div class="platform-card">
+
+        <h2>Platform Information</h2>
+
+        <p>Environment : Production</p>
+        <p>Kubernetes : Enabled</p>
+        <p>Container Runtime : Docker</p>
+        <p>Health Checks : Active</p>
+        <p>CI/CD Pipeline : GitHub Actions</p>
+        <p>Deployment Strategy : Rolling Update</p>
+
+    </div>
+
+    <footer>
+        Robotics Fleet Management Platform |
+        Docker • Kubernetes • GitHub Actions • DevOps Assignment
+    </footer>
+
+</body>
+
+</html>

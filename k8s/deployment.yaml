@@ -26,9 +26,15 @@ spec:
         app: robotics-app
 
     spec:
+      securityContext:
+        runAsNonRoot: true
+
       containers:
         - name: robotics-app
           image: robotics-app:latest
+
+          securityContext:
+            allowPrivilegeEscalation: false
 
           ports:
             - containerPort: 5000

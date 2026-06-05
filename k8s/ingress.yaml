@@ -5,17 +5,22 @@ metadata:
   name: robotics-ingress
 
 spec:
+  tls:
+    - hosts:
+        - robotics.local
+      secretName: robotics-tls
+
   rules:
-  - host: robotics.local
+    - host: robotics.local
 
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
 
-        backend:
-          service:
-            name: robotics-service
+            backend:
+              service:
+                name: robotics-service
 
-            port:
-              number: 80
+                port:
+                  number: 80

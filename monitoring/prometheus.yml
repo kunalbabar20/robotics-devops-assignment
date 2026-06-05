@@ -2,9 +2,10 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
+  - job_name: robotics-app
 
-  - job_name: robotics-api
+    metrics_path: /metrics
 
     static_configs:
       - targets:
-          - robotics-service:5000
+          - host.docker.internal:5000
